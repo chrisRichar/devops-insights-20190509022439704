@@ -8,10 +8,7 @@ var request = REQUEST.defaults( {
 });
 
 var OPENWEATHERURL = "http://api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric";
-<<<<<<< HEAD
 //http://api.openweathermap.org/data/2.5/find?lat=55.5&lon=37.5&cnt=10
-=======
->>>>>>> 0f5800673c06c3a63dff77bba2bf805fb1fb2dc3
 
 exports.getWeather = function(req, res) {
 	var zip = req.query.zip;
