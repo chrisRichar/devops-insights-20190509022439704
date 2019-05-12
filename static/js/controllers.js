@@ -49,6 +49,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4Weather = response.data.weather;
                 } 
             });
+        }else if(data.length === 4) {
+            $scope.zip4Weather = "detected4";
         }else {
             if(which === 1) {
                     $scope.zip1City = "";
