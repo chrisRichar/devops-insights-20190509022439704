@@ -49,7 +49,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4Weather = response.data.weather;
                 } 
             });
-        } else if(data.length === 4) {//else if NZ zip code
+        } /*else if(data.length === 4) {//else if NZ zip code
             $http({
                 method: "GET",
                 url: '/api/v1/getWeather2?zip=' + data
@@ -68,7 +68,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4Weather = response.data.weather;
                 } 
             });
-        } else {
+        }*/ else {
             if(which === 1) {
                     $scope.zip1City = "";
                     $scope.zip1Weather = "";
