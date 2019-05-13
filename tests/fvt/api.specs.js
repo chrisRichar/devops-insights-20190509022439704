@@ -41,7 +41,7 @@
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?z=Auckland,nz'
+              url: appUrl + '/api/v1/getWeather?zip=Auckland'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
