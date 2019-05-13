@@ -15,7 +15,8 @@ exports.getWeather = function(req, res) {
 		return res.status(400).send('zip missing');
 	}
 
-	var aurl = OPENWEATHERURL + '&zip=' + zip + ',us';
+	//API call was documented as api.openweathermap.org/data/2.5/weather?q={city name},{country code}	var zip is actually the city name
+	var aurl = OPENWEATHERURL + '&q=' + zip + ',nz';
 
 	request({
 		method: 'GET',
