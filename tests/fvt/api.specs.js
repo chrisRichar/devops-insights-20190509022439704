@@ -15,7 +15,7 @@
 
     describe('Get Weather', function() {
 
-    	it('with valid zip code', function(done) {
+    	/*it('with valid zip code', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
             return done();
@@ -23,6 +23,25 @@
         request({
       		method: 'GET',
               url: appUrl + '/api/v1/getWeather?zip=1010'
+          }, function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 200);
+              var pbody = JSON.parse(body);
+              assert(pbody.city === 'Auckland', "City name does not match");
+              done();
+            }
+        });
+    	});*/
+    	it('with valid city name', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeather?z=Auckland,nz'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -53,7 +72,7 @@
         });
     	});
 
-      it('with another valid zip code', function(done) {
+      /*it('with another valid zip code', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
             return done();
@@ -71,7 +90,7 @@
               done();
             }
         });
-    	});
+    	});*/
     	
     });
 })();
