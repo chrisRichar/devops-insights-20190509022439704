@@ -16,7 +16,7 @@ exports.getWeather = function(req, res) {
 	}
 
 	//API call was documented as api.openweathermap.org/data/2.5/weather?q={city name},{country code}	var zip is actually the city name
-	var aurl = OPENWEATHERURL + '&q=' + zip + ',nz';
+	var aurl = OPENWEATHERURL + '&zip=' + zip + ',nz';
 
 	request({
 		method: 'GET',
