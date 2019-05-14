@@ -15,6 +15,20 @@
         <div float="left">
             <% include includes/mainbody %>
         </div>
+        
+	    <div id="map" style="height:600px; width:600px; z-index: -10; position:relative; border:solid; float:left;"></div>
+	    <script>
+	      var map;
+	      function initMap() {
+	        map = new google.maps.Map(document.getElementById('map'), {
+	          center: {lat: -34.397, lng: 150.644},
+	          zoom: 8
+	        });
+	      }
+	    </script>
+		<script async defer
+	  	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbOvGhrI4DFlE-Aad6vwqFajtJQ735RnI&callback=initMap">
+		</script>
     </body>
 
     <script>
