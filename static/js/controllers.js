@@ -14,7 +14,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     function($scope, $http, $routeParams, $timeout, $sce) {
 
     $scope.somemessage = "Some weather";
-    $scope.city1 = "";
+    $scope.zip1City = "";
     $scope.zip1Weather = "";
 
     $scope.zip = function(which) {
@@ -36,41 +36,34 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
                 if(which === 1) {
-                    $scope.city1 = response.data.city;
+                    $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
                 } else if(which === 2) {
-                    $scope.city2 = response.data.city;
+                    $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
-                    $scope.city3 = response.data.weather;
+                    $scope.zip3Weather = response.data.weather;
                 } else if(which === 4) {
-                    $scope.city4 = response.data.city;
+                    $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                 } 
             });
         }else {
             if(which === 1) {
-                    $scope.city1 = "";
+                    $scope.zip1City = "";
                     $scope.zip1Weather = "";
                 } else if(which === 2) {
-                    $scope.city2 = "";
+                    $scope.zip2City = "";
                     $scope.zip2Weather = "";
                 } else if(which === 3) {
-                    $scope.city3 = "";
+                    $scope.zip3City = "";
                     $scope.zip3Weather = "";
                 } else if(which === 4) {
-                    $scope.city4 = "";
+                    $scope.zip4City = "";
                     $scope.zip4Weather = "";
                 } 
         }
-        
-        var count = 1;
-        while(count <= 4){
-        	
-        	
-        	count = count + 1;
-    	}
     };
     
 }]);
