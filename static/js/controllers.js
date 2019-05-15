@@ -36,7 +36,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
                 if(which === 1) {
-                    $scope.zip1City = response.data.city;
+                    $scope.zip1City = response.data.coord.lat + "," + response.data.coord.lon;
                     $scope.zip1Weather = response.data.weather;
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
