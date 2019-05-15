@@ -19,6 +19,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 
     $scope.zip = function(which) {
 
+	
         var data = "";
         if(which === 1) {
             data = $scope.zip1m;
@@ -28,7 +29,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             data = $scope.zip3m;
         } else if(which === 4) {
             data = $scope.zip4m;
-        } 
+        }
 
         if(data.length > 1) {
             $http({
@@ -36,16 +37,16 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
                 if(which === 1) {
-                    $scope.zip1City = response.data.city;
+                    $scope.zip1City = response.data.coord;
                     $scope.zip1Weather = response.data.weather;
                 } else if(which === 2) {
-                    $scope.zip2City = response.data.city;
+                    $scope.zip2City = response.data.coord;
                     $scope.zip2Weather = response.data.weather;
                 } else if(which === 3) {
-                    $scope.zip3City = response.data.city;
+                    $scope.zip3City = response.data.coord;
                     $scope.zip3Weather = response.data.weather;
                 } else if(which === 4) {
-                    $scope.zip4City = response.data.city;
+                    $scope.zip4City = response.data.coord;
                     $scope.zip4Weather = response.data.weather;
                 } 
             });
@@ -62,7 +63,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 } else if(which === 4) {
                     $scope.zip4City = "";
                     $scope.zip4Weather = "";
-                } 
+                }
         }
     };
     

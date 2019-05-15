@@ -25,6 +25,13 @@
 	          zoom: 8
 	        });
 	      }
+	      
+	      function newPin(latLong, name){
+			var marker = new google.maps.Marker({
+				position: latLong,
+				map: map,
+				title: name
+			});
 	    </script>
 		<script async defer
 	  	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbOvGhrI4DFlE-Aad6vwqFajtJQ735RnI&callback=initMap">
