@@ -10,6 +10,16 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
     });
 }]);
 
+var markers = [];
+
+var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -36.8485, lng: 174.7633},
+          zoom: 8
+        });
+      }
+
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
 
@@ -39,14 +49,17 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 if(which === 1) {
                     $scope.zip1Weather = response.data.weather;
                     $scope.zip1City = response.data.coord.lat + ',' + response.data.coord.lon; //response.data.coord.lat + "," + response.data.coord.lon;
+                    
+                    addMarker(response.data.coord, which);
+                    
                 } else if(which === 2) {
-                    $scope.zip2City = response.data.city;
+                    $scope.zip2City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip2Weather = response.data.weather;
                 } else if(which === 3) {
-                    $scope.zip3City = response.data.city;
+                    $scope.zip3City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip3Weather = response.data.weather;
                 } else if(which === 4) {
-                    $scope.zip4City = response.data.city;
+                    $scope.zip4City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip4Weather = response.data.weather;
                 } 
             });
