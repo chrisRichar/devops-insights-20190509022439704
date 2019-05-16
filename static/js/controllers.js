@@ -18,10 +18,22 @@ var map;
           center: {lat: -36.8485, lng: 174.7633},
           zoom: 8
         });
+        
+        	map.addListener('click', function(e) {
+        		var i;
+		    	for(i = 1; i < markers.length; i++){	//find next available array position
+		    		if(markers[i] === null)
+		    			break;
+	    		}
+		    	
+		    	var coord = {lat: e.latLng.lat, lon: e.latLng.lng};
+		    	addMarkers(coord, i);
+		    	
+		    	
+			});
       }
 
 	function addMarkers(latLng, markerNum){
-	alert(latLng.lat + latLng.lon);
 		var marker = new google.maps.Marker({
           position: {lat: latLng.lat, lng: latLng.lon},
           map: map,
