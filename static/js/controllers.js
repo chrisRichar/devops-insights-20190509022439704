@@ -20,6 +20,14 @@ var map;
         });
       }
 
+	function addMarkers(latLng, markerNum){
+		var marker = new google.maps.Marker({
+          position: latLng,
+          map: map,
+          title: markerNum
+        });
+
+	}
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
 
