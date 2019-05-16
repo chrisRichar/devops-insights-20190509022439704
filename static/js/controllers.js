@@ -21,16 +21,19 @@ var map;
       }
 
 	function addMarkers(latLng, markerNum){
+	alert(latLng.lat + latLng.lon);
 		var marker = new google.maps.Marker({
-			
           position: {lat: latLng.lat, lng: latLng.lon},
           map: map,
           title: markerNum.toString()
         });
+        
+        markers[markerNum] = marker;
 	}
 	
 	function removeMarkers(markerNum){
-		
+		markers[markerNum].setMap(null);
+		markers[markerNum] = null;
 	}
 
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
@@ -63,20 +66,22 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1Weather = response.data.weather;
                     $scope.zip1City = response.data.coord.lat + ',' + response.data.coord.lon; //response.data.coord.lat + "," + response.data.coord.lon;
                     
-                    var latLng = {lat: response.data.coord.lat, lon: response.data.coord.lon};
                     addMarkers(response.data.coord, which);
                     
                 } else if(which === 2) {
                     $scope.zip2City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip2Weather = response.data.weather;
+                    
                     addMarkers(response.data.coord, which);
                 } else if(which === 3) {
                     $scope.zip3City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip3Weather = response.data.weather;
+                    
                     addMarkers(response.data.coord, which);
                 } else if(which === 4) {
                     $scope.zip4City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip4Weather = response.data.weather;
+                    
                     addMarkers(response.data.coord, which);
                 } 
             });
@@ -84,15 +89,23 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             if(which === 1) {
                     $scope.zip1City = "";
                     $scope.zip1Weather = "";
+                    
+                    removeMarkers(which);
                 } else if(which === 2) {
                     $scope.zip2City = "";
                     $scope.zip2Weather = "";
+                    
+                    removeMarkers(which);
                 } else if(which === 3) {
                     $scope.zip3City = "";
                     $scope.zip3Weather = "";
+                    
+                    removeMarkers(which);
                 } else if(which === 4) {
                     $scope.zip4City = "";
                     $scope.zip4Weather = "";
+                    
+                    removeMarkers(which);
                 } 
         }
     };
