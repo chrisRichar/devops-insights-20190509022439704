@@ -22,12 +22,17 @@ var map;
 
 	function addMarkers(latLng, markerNum){
 		var marker = new google.maps.Marker({
-          position: latLng,
+			
+          position: {lat: latLng.lat, lng: latLng.lon},
           map: map,
-          title: markerNum
+          title: markerNum.toString()
         });
-
 	}
+	
+	function removeMarkers(markerNum){
+		
+	}
+
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
 
@@ -58,17 +63,21 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1Weather = response.data.weather;
                     $scope.zip1City = response.data.coord.lat + ',' + response.data.coord.lon; //response.data.coord.lat + "," + response.data.coord.lon;
                     
+                    var latLng = {lat: response.data.coord.lat, lon: response.data.coord.lon};
                     addMarkers(response.data.coord, which);
                     
                 } else if(which === 2) {
                     $scope.zip2City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip2Weather = response.data.weather;
+                    addMarkers(response.data.coord, which);
                 } else if(which === 3) {
                     $scope.zip3City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip3Weather = response.data.weather;
+                    addMarkers(response.data.coord, which);
                 } else if(which === 4) {
                     $scope.zip4City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip4Weather = response.data.weather;
+                    addMarkers(response.data.coord, which);
                 } 
             });
         }else {
