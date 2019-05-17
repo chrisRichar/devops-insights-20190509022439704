@@ -117,7 +117,7 @@
     });
   });
 
-  
+
   describe('Get Weather 2', function() {
 
     it('with without zip code', function() {
