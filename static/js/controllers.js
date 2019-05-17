@@ -20,11 +20,11 @@ var map;
         });
         
         	map.addListener('click', function(e) {
-        		var i;
+        		/*var i;
 		    	for(i = 1; i < markers.length; i++){	//find next available array position
 		    		if(markers[i] === null)
 		    			break;
-	    		}
+	    		}*/
 		    	
 		    	var coord = {lat: e.latLng.lat, lon: e.latLng.lng};
 		    	addMarkers(coord, i);
