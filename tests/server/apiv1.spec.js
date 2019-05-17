@@ -26,9 +26,13 @@
   sinon.spy(resMock, "status");
   sinon.spy(resMock, "send");
 
-/*
-  describe('Get Weather', function() {
 
+  describe('Get Weather', function() {
+/*
+ *  Get Weather with incomplete zip code
+    Get Weather with without zip code
+    Get Weather with valid zip code 
+ */
     it('without city name', function() {
       reqMock = {
         query: {
@@ -112,9 +116,9 @@
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
   });
-*/
+
   
-  /*describe('Get Weather 2', function() {
+  describe('Get Weather 2', function() {
 
     it('with without zip code', function() {
       reqMock = {
@@ -198,6 +202,6 @@
       assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
-  });*/
+  });
   
 }());
