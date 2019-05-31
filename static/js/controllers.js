@@ -77,7 +77,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1City = response.data.coord.lat + ',' + response.data.coord.lon; //response.data.coord.lat + "," + response.data.coord.lon;
                     
                     addMarkers(response.data.coord, which);
-                    
                 } else if(which === 2) {
                     $scope.zip2City = response.data.coord.lat + ',' + response.data.coord.lon;
                     $scope.zip2Weather = response.data.weather;
